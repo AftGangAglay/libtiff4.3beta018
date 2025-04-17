@@ -161,7 +161,7 @@ _tiffSizeProc(thandle_t fd)
 	struct asys_stream stream;
 	union asys_file_attribute attribute;
 
-	stream.hfile = fd;
+	stream.handle = fd;
 
 	result = asys_stream_attribute(&stream, ASYS_FILE_LENGTH, &attribute);
 	asys_log_result(__FILE__, "asys_stream_attribute", result);
