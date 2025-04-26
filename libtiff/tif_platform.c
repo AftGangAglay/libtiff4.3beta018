@@ -26,10 +26,10 @@
 
 #include <tiffio.h>
 
-#ifdef TIFF_IO_WIN3
+#ifdef ASYS_WIN32
 # include "tif_win3.c"
-#elif defined(TIFF_IO_UNIX)
+#elif defined(ASYS_UNIX)
 # include "tif_unix.c"
-#elif defined(TIFF_IO_STDC)
+#elif defined(ASYS_STDC)
 # include "tif_stdc.c"
 #endif

@@ -66,34 +66,10 @@ typedef uint32 ttile_t;		/* tile number */
 typedef	int32 tsize_t;		/* i/o size in bytes */
 
 #include <asys/base.h>
+#include <asys/stream.h>
+#include <asys/system.h>
 
-#ifdef ASYS_WIN32
-# ifndef _CRT_SECURE_NO_WARNINGS
-#  define _CRT_SECURE_NO_WARNINGS
-# endif
-# ifndef _CRT_NONSTDC_NO_WARNINGS
-#  define _CRT_NONSTDC_NO_WARNINGS
-# endif
-# ifdef _MSC_VER
-#  pragma warning(push)
-#  pragma warning(disable: 4668) /* Symbol not defined as macro. */
-# endif
-# include <windows.h>
-# ifdef _MSC_VER
-#  pragma warning(pop)
-# endif
-# define TIFF_IO_WIN3
-typedef	HFILE thandle_t;
-#elif defined(ASYS_UNIX)
-# define TIFF_IO_UNIX
-typedef	int thandle_t;
-#elif defined(ASYS_STDC)
-# include <stdio.h>
-# define TIFF_IO_STDC
-typedef	FILE* thandle_t;
-#else
-typedef	void* thandle_t;
-#endif
+typedef	asys_stream_native_t thandle_t;
 
 typedef	void* tdata_t;		/* image data ref */
 typedef	int32 toff_t;		/* file offset */
