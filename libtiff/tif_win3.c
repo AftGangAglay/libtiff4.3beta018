@@ -31,47 +31,9 @@
 
 #include <asys/log.h>
 #include <asys/stream.h>
+#include <asys/system.h>
 
-/*
- * TODO: Put these common rising/falling edges from `std.h' into a separate
- * 		 Header for including in vendor code.
- */
-
-#ifdef _MSC_VER
-# pragma warning(push)
-# pragma warning(disable: 4668) /* Symbol not defined as macro. */
-#endif
-
-#if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_MSC_VER)
-# include <io.h>		/* for open, close, etc. function prototypes */
-#endif
-
-#include <windows.h>
-#include <windowsx.h>
-#include <memory.h>
-
-/* TODO: Is this era-accurate for `off_t'? */
-#include <sys/types.h>
-
-/* TODO: Use asys for all tiff IO. */
-#ifdef _WIN64
-# ifdef _MSC_VER
-typedef unsigned __int64 tptr_t;
-# else
-typedef u_int64 tptr_t;
-# endif
-#else
-typedef u_long tptr_t;
-#endif
-
-#ifdef _WIN32
-# undef _CRT_SECURE_NO_WARNINGS
-# undef _CRT_NONSTDC_NO_WARNINGS
-#endif
-
-#ifdef _MSC_VER
-# pragma warning(pop)
-#endif
+typedef asys_native_ulong_t tptr_t;
 
 static tsize_t 
 _tiffReadProc(thandle_t fd, tdata_t buf, tsize_t size)
