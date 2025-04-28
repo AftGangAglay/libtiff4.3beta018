@@ -53,13 +53,8 @@
 typedef	short int16;
 typedef	unsigned short uint16;	/* sizeof (uint16) must == 2 */
 
-#ifdef _WIN32
-typedef	long int32;
-typedef	unsigned long uint32;	/* sizeof (uint32) must == 4 */
-#else
 typedef	int int32;
 typedef	unsigned int uint32;	/* sizeof (uint32) must == 4 */
-#endif
 
 typedef	struct {
 	uint16	tiff_magic;	/* magic number (defines byte order) */

@@ -27,20 +27,6 @@
 #ifndef _TIFFIOP_
 #define	_TIFFIOP_
 
-#ifdef _WIN32
-# ifndef _CRT_SECURE_NO_WARNINGS
-#  define _CRT_SECURE_NO_WARNINGS
-# endif
-# ifndef _CRT_NONSTDC_NO_WARNINGS
-#  define _CRT_NONSTDC_NO_WARNINGS
-# endif
-#endif
-
-#ifdef _MSC_VER
-# pragma warning(push)
-# pragma warning(disable: 4668) /* Symbol not defined as macro. */
-#endif
-
 /*
  * ``Library-private'' definitions.
  */
@@ -48,15 +34,6 @@
 #include "tiffcomp.h"
 #include "tiffio.h"
 #include "tif_dir.h"
-
-#ifdef _WIN32
-# undef _CRT_SECURE_NO_WARNINGS
-# undef _CRT_NONSTDC_NO_WARNINGS
-#endif
-
-#ifdef _MSC_VER
-# pragma warning(pop)
-#endif
 
 #ifndef TRUE
 #define	TRUE	1
